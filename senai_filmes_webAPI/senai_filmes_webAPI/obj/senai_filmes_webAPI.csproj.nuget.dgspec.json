@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {}
+    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {
+    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
         "projectName": "senai_filmes_webAPI",
-        "projectPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
+        "projectPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\senai_filmes_webAPI\\senai_filmes_webAPI\\senai_filmes_webAPI.csproj",
         "packagesPath": "C:\\Users\\Luisa Oliveira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_filmes_webAPI\\senai_filmes_webAPI\\obj\\",
+        "outputPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\senai_filmes_webAPI\\senai_filmes_webAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

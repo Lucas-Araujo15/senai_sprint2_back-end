@@ -43,11 +43,11 @@ namespace senai_filmes_webAPI.Repositories
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectALL = "INSERT INTO genero (nomeGenero) VALUES ('" + novoGenero.nomeGenero + "')";
+                string queryInsertInto = "INSERT INTO genero (nomeGenero) VALUES ('" + novoGenero.nomeGenero + "')";
 
                 con.Open();
 
-                using (SqlCommand cmd = new SqlCommand(querySelectALL, con))
+                using (SqlCommand cmd = new SqlCommand(queryInsertInto, con))
                 {
                     cmd.ExecuteNonQuery();
                 }
