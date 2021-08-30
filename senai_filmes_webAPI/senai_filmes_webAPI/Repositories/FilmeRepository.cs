@@ -30,12 +30,14 @@ namespace senai_filmes_webAPI.Repositories
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryInsertInto = "INSERT INTO filme(idGenero, tituloFilme) VALUES (" + novoFilme.idGenero + ", '" + novoFilme.tituloFilme + "')";
+                string queryInsertInto = "INSERT INTO filme(idGenero, tituloFilme) VALUES (@idGenero, @tituloFilme)";
 
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(queryInsertInto, con))
                 {
+                    cmd.Parameters.AddWithValue("@idGenero", novoFilme.idGenero);
+                    cmd.Parameters.AddWithValue("@tituloFilme", novoFilme.tituloFilme);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -43,7 +45,18 @@ namespace senai_filmes_webAPI.Repositories
 
         public void Deletar(int idFilme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDelete = "DELETE FROM filme WHERE idFilme = @idFilme";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@idFilme", idFilme);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<FilmeDomain> ListarTodos()
@@ -52,7 +65,7 @@ namespace senai_filmes_webAPI.Repositories
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectALL = "SELECT tituloFilme Filme, nomeGenero [Gênero] FROM filme LEFT JOIN genero ON genero.idGenero = filme.idGenero;";
+                string querySelectALL = "SELECT idFilme, filme.idGenero, tituloFilme, nomeGenero FROM filme INNER JOIN genero ON genero.idGenero = filme.idGenero";
 
                 con.Open();
 
