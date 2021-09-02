@@ -13,7 +13,7 @@ namespace senai_rental_webAPI.Repositories
         private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=rental; integrated security=true";
         public void Atualizar(VeiculoDomain novoVeiculo)
         {
-            if (novoVeiculo.IdEmpresa != 0 & novoVeiculo.IdModelo != 0 & novoVeiculo.placaVeiculo != null)
+            if (novoVeiculo.IdEmpresa != 0 && novoVeiculo.IdModelo != 0 && novoVeiculo.placaVeiculo != null)
             {
                 using (SqlConnection con = new SqlConnection(stringConexao))
                 {
