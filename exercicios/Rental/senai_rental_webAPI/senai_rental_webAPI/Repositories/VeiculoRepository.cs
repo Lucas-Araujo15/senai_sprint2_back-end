@@ -121,11 +121,7 @@ namespace senai_rental_webAPI.Repositories
 
             using(SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectAll = "SELECT IdVeiculo, IdEmpresa, IdModelo, placaVeiculo Placa, end_empresa Unidade, nomeModelo Modelo FROM veiculo " +
-                    "INNER JOIN empresa " +
-                    "ON empresa.IdEmpresa = veiculo.IdEmpresa" +
-                    "INNER JOIN modelo" +
-                    "ON veiculo.IdModelo = modelo.IdModelo";
+                string querySelectAll = "SELECT IdVeiculo, veiculo.IdEmpresa, veiculo.IdModelo, placaVeiculo Placa, end_empresa Unidade, nomeModelo Modelo FROM veiculo INNER JOIN empresa ON empresa.IdEmpresa = veiculo.IdEmpresa INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo";
                 SqlDataReader rdr;
                 con.Open();
 
