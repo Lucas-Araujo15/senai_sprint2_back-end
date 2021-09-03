@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "2f407d17-77f0-40ec-8ff1-5ca5f1005cb0",
+		"name": "Senai.Rental.Manha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Veiculos",
+			"item": [
+				{
+					"name": "VeiculosCadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdEmpresa\": 2,\r\n    \"IdModelo\": 3,\r\n    \"placaVeiculo\": \"FJV274\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VeiculosListar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VeiculosDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/veiculos/6",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VeiculosListarId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/veiculos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VeiculosAtualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdVeiculo\": 1,\r\n    \"IdModelo\": 1,\r\n    \"IdEmpresa\": 1,\r\n    \"placaVeiculo\": \"AAAAAA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "ClientesCadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeCliente\": \"Lucas\",\r\n    \"sobrenomeCliente\": \"Araujo\",\r\n    \"cpfCliente\": \"98765432123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClientesListar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClientesDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/clientes/5",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClientesListarId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/clientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClientesAtualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdCliente\": 4,\r\n    \"nomeCliente\": \"Paulo\",\r\n    \"sobrenomeCliente\": \"Brandão\",\r\n    \"cpfCliente\": \"13213213213\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alugueis",
+			"item": [
+				{
+					"name": "AlugueisCadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCliente\": 1,\r\n    \"idVeiculo\": 1,\r\n    \"dataInicio\": \"2021-05-05T00:00:00\",        \r\n    \"dataFim\": \"2021-06-06T00:00:00\",\r\n    \"valorAluguel\": 100.0000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/alugueis",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlugueisListar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/alugueis",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlugueisDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/alugueis/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlugueisListarId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/alugueis/3",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlugueisAtualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAluguel\": 1,\r\n    \"idCliente\": 3,\r\n    \"idVeiculo\": 2,\r\n    \"dataInicio\": \"2021-05-05T00:00:00\",\r\n    \"dataFim\": \"2021-06-06T00:00:00\",\r\n    \"valorAluguel\": 300.0000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/alugueis",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"alugueis"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

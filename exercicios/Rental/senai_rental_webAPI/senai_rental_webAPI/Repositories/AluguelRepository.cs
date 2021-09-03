@@ -13,12 +13,11 @@ namespace senai_rental_webAPI.Repositories
         private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=rental; integrated security=true";
         public void Atualizar(AluguelDomain novoAluguel)
         {
-            if (novoAluguel.IdAluguel != 0 && novoAluguel.IdVeiculo != 0 && novoAluguel.IdCliente != 0 && novoAluguel.valorAluguel != 0)
+            if (novoAluguel.IdAluguel != 0 || novoAluguel.IdVeiculo != 0 || novoAluguel.IdCliente != 0 || novoAluguel.valorAluguel != 0)
             {
                 using (SqlConnection con = new SqlConnection(stringConexao))
                 {
-                    string queryUpdate = "UPDATE aluguel SET IdVeiculo = @IdVeiculo, IdCliente = @IdCliente, valorAluguel = @valorAluguel" +
-                        "cpfCliente = @cpfCliente WHERE IdAluguel = @IdAluguel";
+                    string queryUpdate = "UPDATE aluguel SET IdVeiculo = @IdVeiculo, IdCliente = @IdCliente, valorAluguel = @valorAluguel, cpfCliente = @cpfCliente WHERE IdAluguel = @IdAluguel";
 
                     con.Open();
 
@@ -40,17 +39,14 @@ namespace senai_rental_webAPI.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
 
-                string querySelectById = "SELECT IdAluguel, IdCliente, IdVeiculo, valorAluguel, dataInicio [Início], " +
-                    "dataFim Fim, nomeCliente Nome, sobrenomeCliente Sobrenome, placaVeiculo [Veículo], nomeModelo Modelo FROM aluguel" +
-                    "INNER JOIN veiculo ON veiculo.IdVeiculo = aluguel.IdVeiculo" +
-                    "INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo" +
-                    "WHERE IdAluguel = @IdAluguel";
+                string querySelectById = "SELECT IdAluguel, aluguel.IdCliente, aluguel.IdVeiculo, valorAluguel, dataInicio [Início], dataFim Fim, nomeCliente Nome, sobrenomeCliente Sobrenome, placaVeiculo [Veículo], nomeModelo Modelo FROM aluguel INNER JOIN veiculo ON veiculo.IdVeiculo = aluguel.IdVeiculo INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo INNER JOIN cliente ON cliente.IdCliente = aluguel.IdCliente WHERE IdAluguel = @IdAluguel";
 
                 SqlDataReader rdr;
 
                 using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@IdAluguel", id);
+                    con.Open();
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
@@ -130,10 +126,7 @@ namespace senai_rental_webAPI.Repositories
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectAll = "SELECT IdAluguel, IdCliente, IdVeiculo, valorAluguel, dataInicio [Início], " +
-                    "dataFim Fim, nomeCliente Nome, sobrenomeCliente Sobrenome, placaVeiculo [Veículo], nomeModelo Modelo FROM aluguel" +
-                    "INNER JOIN veiculo ON veiculo.IdVeiculo = aluguel.IdVeiculo" +
-                    "INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo";
+                string querySelectAll = "SELECT IdAluguel, aluguel.IdCliente, aluguel.IdVeiculo, valorAluguel, dataInicio [Início], dataFim Fim, nomeCliente Nome, sobrenomeCliente Sobrenome, placaVeiculo [Veículo], nomeModelo Modelo FROM aluguel INNER JOIN veiculo ON veiculo.IdVeiculo = aluguel.IdVeiculo INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo INNER JOIN cliente ON cliente.IdCliente = aluguel.IdCliente";
                 SqlDataReader rdr;
                 con.Open();
 

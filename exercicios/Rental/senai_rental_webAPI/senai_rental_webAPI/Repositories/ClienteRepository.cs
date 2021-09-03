@@ -13,12 +13,11 @@ namespace senai_rental_webAPI.Repositories
         private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=rental; integrated security=true";
         public void Atualizar(ClienteDomain novoCliente)
         {
-            if (novoCliente.IdCliente != 0 && novoCliente.nomeCliente != null && novoCliente.sobrenomeCliente != null && novoCliente.cpfCliente != null )
+            if (novoCliente.IdCliente != 0 || novoCliente.nomeCliente != null || novoCliente.sobrenomeCliente != null || novoCliente.cpfCliente != null )
             {
                 using (SqlConnection con = new SqlConnection(stringConexao))
                 {
-                    string queryUpdate = "UPDATE cliente SET nomeCliente = @nomeCLiente, sobrenomeCliente = @sobrenomeCliente," +
-                        "cpfCliente = @cpfCliente WHERE IdCliente = @IdCliente";
+                    string queryUpdate = "UPDATE cliente SET nomeCliente = @nomeCLiente, sobrenomeCliente = @sobrenomeCliente, cpfCliente = @cpfCliente WHERE IdCliente = @IdCliente";
 
                     con.Open();
 
@@ -40,14 +39,14 @@ namespace senai_rental_webAPI.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
 
-                string querySelectById = "SELECT IdCliente Id, nomeCliente Nome, sobrenomeCliente Sobrenome, cpfCliente CPF FROM cliente" +
-                    "WHERE IdCliente = @IdCliente";
+                string querySelectById = "SELECT IdCliente Id, nomeCliente Nome, sobrenomeCliente Sobrenome, cpfCliente CPF FROM cliente WHERE IdCliente = @IdCliente";
 
                 SqlDataReader rdr;
 
                 using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@IdCliente", id);
+                    con.Open();
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())

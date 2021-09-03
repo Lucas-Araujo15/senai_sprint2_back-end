@@ -13,12 +13,11 @@ namespace senai_rental_webAPI.Repositories
         private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=rental; integrated security=true";
         public void Atualizar(VeiculoDomain novoVeiculo)
         {
-            if (novoVeiculo.IdEmpresa != 0 && novoVeiculo.IdModelo != 0 && novoVeiculo.placaVeiculo != null)
+            if (novoVeiculo.IdEmpresa != 0 || novoVeiculo.IdModelo != 0 || novoVeiculo.placaVeiculo != null)
             {
                 using (SqlConnection con = new SqlConnection(stringConexao))
                 {
-                    string queryUpdate = "UPDATE veiculo SET IdEmpresa = @IdEmpresa, IdModelo = @IdModelo, placaVeiculo = @placaVeiculo" +
-                        "WHERE IdVeiculo = @IdVeiculo";
+                    string queryUpdate = "UPDATE veiculo SET IdEmpresa = @IdEmpresa, IdModelo = @IdModelo, placaVeiculo = @placaVeiculo WHERE IdVeiculo = @IdVeiculo";
 
                     con.Open();
 
@@ -40,18 +39,14 @@ namespace senai_rental_webAPI.Repositories
             using(SqlConnection con = new SqlConnection(stringConexao))
             {
                 
-                string querySelectById = "SELECT IdVeiculo, IdEmpresa, IdModelo, placaVeiculo Placa, end_empresa Unidade, nomeModelo Modelo FROM veiculo " +
-                    "INNER JOIN empresa " +
-                    "ON empresa.IdEmpresa = veiculo.IdEmpresa" +
-                    "INNER JOIN modelo" +
-                    "ON veiculo.IdModelo = modelo.IdModelo" +
-                    "WHERE veiculo.IdVeiculo = @Idveiculo";
+                string querySelectById = "SELECT IdVeiculo, veiculo.IdEmpresa, veiculo.IdModelo, placaVeiculo Placa, end_empresa Unidade, nomeModelo Modelo FROM veiculo INNER JOIN empresa ON empresa.IdEmpresa = veiculo.IdEmpresa INNER JOIN modelo ON veiculo.IdModelo = modelo.IdModelo WHERE veiculo.IdVeiculo = @Idveiculo";
 
                 SqlDataReader rdr;
 
                 using(SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@IdVeiculo", id);
+                    con.Open();
                     rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
