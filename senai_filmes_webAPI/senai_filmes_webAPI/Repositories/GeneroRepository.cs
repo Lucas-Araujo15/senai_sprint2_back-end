@@ -22,21 +22,78 @@ namespace senai_filmes_webAPI.Repositories
 
         //private string stringConexao = "Data source =; initial catalogo =; user id=sa; pwd=Senai@132";
 
-        private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=catalogo_m; integrated security=true";
+        private string stringConexao = @"Data source=DESKTOP-SV3M4A7\SQLEXPRESS; initial catalog=catalogo_m; user id = sa; pwd=Senai@132";
 
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            if (genero.idGenero != 0 && genero.nomeGenero != null)
+            {
+                using (SqlConnection con = new SqlConnection(stringConexao))
+                {
+                    string queryUpdate = "UPDATE genero SET nomeGenero = @nomeGenero WHERE idGenero = @idGenero";
+
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                    {
+                        cmd.Parameters.AddWithValue("@idGenero", genero.idGenero);
+                        cmd.Parameters.AddWithValue("@nomeGenero", genero.nomeGenero);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         public void AtualizarIdUrl(int idGenero, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            if (genero.nomeGenero != null && idGenero != 0)
+            {
+                using (SqlConnection con = new SqlConnection(stringConexao))
+                {
+                    string queryUpdate = "UPDATE genero SET nomeGenero = @nomeGenero WHERE idGenero = @idGenero";
+
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                    {
+                        cmd.Parameters.AddWithValue("@idGenero", idGenero);
+                        cmd.Parameters.AddWithValue("@nomeGenero", genero.nomeGenero);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         public GeneroDomain BuscarPorId(int idGenero)
-        {
-            throw new NotImplementedException();
+        {            
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectALL = "SELECT idGenero, nomeGenero FROM genero WHERE idGenero = @idGenero;";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectALL, con))
+                {
+                    cmd.Parameters.AddWithValue("@idGenero", idGenero);
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(rdr[0]),
+                            nomeGenero = rdr[1].ToString()
+                        };
+                        return genero;
+                    }
+                    return null;
+                }              
+            }
         }
 
         public void Cadastrar(GeneroDomain novoGenero)

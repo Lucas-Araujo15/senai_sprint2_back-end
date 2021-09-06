@@ -23,6 +23,19 @@ namespace senai_filmes_webAPI.Controllers
             _FilmeRepository = new FilmeRepository();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            FilmeDomain filmeEncontrado = _FilmeRepository.BuscarPorId(id);
+
+            if (filmeEncontrado == null)
+            {
+                return NotFound("Nenhum filme encontrado!");
+            }
+
+            return Ok(filmeEncontrado);            
+        }
+        
         [HttpGet]
         public IActionResult Get()
         {
@@ -42,6 +55,80 @@ namespace senai_filmes_webAPI.Controllers
         {
             _FilmeRepository.Deletar(id);
             return StatusCode(204);
+        }
+
+        [HttpPut]
+        public IActionResult PutBody(FilmeDomain filme)
+        {
+            if (filme.idFilme == 0 || filme.idGenero == 0 || filme.tituloFilme == null)
+            {
+                return BadRequest(
+                    new
+                    {
+                        mensagemErro = "Algumas informações não foram informadas!"
+                    }
+                );
+            }
+
+            FilmeDomain filmeVerificacao = _FilmeRepository.BuscarPorId(filme.idFilme);
+
+            if (filmeVerificacao != null)
+            {
+                try
+                {
+                    _FilmeRepository.AtualizarIdCorpo(filme);
+                    return NoContent();
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }                
+            }
+
+            return NotFound(
+                    new
+                    {
+                        mensagemErro = "Filme não encontrado!",
+                        codErro = true
+                    }
+                );
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PutById(int id, FilmeDomain filme)
+        {
+            if (id == 0 || filme.idGenero == 0 || filme.tituloFilme == null)
+            {
+                return BadRequest(
+                    new
+                    {
+                        mensagemErro = "Algumas informações não foram informadas!"
+                    }
+                );
+            }
+
+            FilmeDomain filmeVerificacao = _FilmeRepository.BuscarPorId(id);
+
+            if (filmeVerificacao != null)
+            {
+                try
+                {
+                    _FilmeRepository.AtualizarIdUrl(id,filme);
+                    return NoContent();
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }
+            }
+
+            return NotFound(
+                    new
+                    {
+                        mensagemErro = "Filme não encontrado!",
+                        codErro = true
+                    }
+                );
         }
     }
 }

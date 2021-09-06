@@ -10,20 +10,83 @@ namespace senai_filmes_webAPI.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
-        private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=catalogo_m; integrated security=true";
+        private string stringConexao = @"Data source=DESKTOP-SV3M4A7\SQLEXPRESS; initial catalog=catalogo_m; user id = sa; pwd=Senai@132";
         public void AtualizarIdCorpo(FilmeDomain filme)
         {
-            throw new NotImplementedException();
+            if (filme.idFilme != 0 && filme.idGenero != 0 && filme.tituloFilme != null)
+            {
+                using(SqlConnection con = new SqlConnection(stringConexao))
+                {
+                    string queryUpdate = "UPDATE filme SET idGenero = @idGenero, tituloFilme = @tituloFilme WHERE idFilme = @idFilme";
+
+                    con.Open();
+
+                    using(SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                    {
+                        cmd.Parameters.AddWithValue("@idGenero", filme.idGenero);
+                        cmd.Parameters.AddWithValue("@idFilme", filme.idFilme);
+                        cmd.Parameters.AddWithValue("@tituloFilme", filme.tituloFilme);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
-        public void AtualizarIdUrl(int idFIlme, FilmeDomain filme)
+        public void AtualizarIdUrl(int idFilme, FilmeDomain filme)
         {
-            throw new NotImplementedException();
+            if (filme.idGenero != 0 && filme.tituloFilme != null && idFilme != 0)
+            {
+                using (SqlConnection con = new SqlConnection(stringConexao))
+                {
+                    string queryUpdate = "UPDATE filme SET idGenero = @idGenero, tituloFilme = @tituloFilme WHERE idFilme = @idFilme";
+
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                    {
+                        cmd.Parameters.AddWithValue("@idGenero", filme.idGenero);
+                        cmd.Parameters.AddWithValue("@idFilme", idFilme);
+                        cmd.Parameters.AddWithValue("@tituloFilme", filme.tituloFilme);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         public FilmeDomain BuscarPorId(int idFilme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectALL = "SELECT idFilme, filme.idGenero, tituloFilme, nomeGenero FROM filme INNER JOIN genero ON genero.idGenero = filme.idGenero WHERE idFilme = @idFilme";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectALL, con))
+                {
+                    cmd.Parameters.AddWithValue("@idFilme", idFilme);
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain();
+                        genero.nomeGenero = rdr[3].ToString();
+
+                        FilmeDomain filme = new FilmeDomain()
+                        {
+                            idFilme = Convert.ToInt32(rdr[0]),
+                            idGenero = Convert.ToInt32(rdr[1]),
+                            tituloFilme = rdr[2].ToString(),
+                            genero = genero
+                        };
+                        return filme;
+                    }
+                    return null;
+                }                
+            }
         }
 
         public void Cadastrar(FilmeDomain novoFilme)
