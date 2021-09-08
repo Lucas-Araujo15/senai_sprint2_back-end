@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_filmes_webAPI.Domains;
 using senai_filmes_webAPI.Interfaces;
@@ -14,6 +15,8 @@ namespace senai_filmes_webAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+
+    [Authorize]
     public class FilmeController : ControllerBase
     {
         private IFilmeRepository _FilmeRepository { get; set; }
@@ -43,6 +46,7 @@ namespace senai_filmes_webAPI.Controllers
             return Ok(listaFilmes);
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(FilmeDomain novoFilme)
         {
@@ -50,6 +54,7 @@ namespace senai_filmes_webAPI.Controllers
             return StatusCode(201);
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -57,6 +62,7 @@ namespace senai_filmes_webAPI.Controllers
             return StatusCode(204);
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPut]
         public IActionResult PutBody(FilmeDomain filme)
         {
@@ -94,6 +100,7 @@ namespace senai_filmes_webAPI.Controllers
                 );
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPut("{id}")]
         public IActionResult PutById(int id, FilmeDomain filme)
         {

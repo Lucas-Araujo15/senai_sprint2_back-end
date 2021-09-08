@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_filmes_webAPI.Domains;
 using senai_filmes_webAPI.Interfaces;
@@ -14,6 +15,8 @@ namespace senai_filmes_webAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+
+    [Authorize]
     public class GeneroController : ControllerBase
     {
         private IGeneroRepository _GeneroRepository { get; set; }
@@ -43,6 +46,8 @@ namespace senai_filmes_webAPI.Controllers
             return Ok(listaGeneros);
         }
 
+
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(GeneroDomain novoGenero)
         {
@@ -50,6 +55,7 @@ namespace senai_filmes_webAPI.Controllers
             return StatusCode(201);
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -57,6 +63,7 @@ namespace senai_filmes_webAPI.Controllers
             return StatusCode(204);
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPut]
         public IActionResult PutBody(GeneroDomain genero)
         {
@@ -93,6 +100,7 @@ namespace senai_filmes_webAPI.Controllers
                 );
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPut("{id}")]
         public IActionResult PutById(int id, GeneroDomain genero)
         {
