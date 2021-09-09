@@ -451,19 +451,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucas Araujo\\.nuget\\packages\\": {}
+    "C:\\Users\\fic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\fic\\Desktop\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
       "projectName": "senai_rental_webAPI",
-      "projectPath": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
-      "packagesPath": "C:\\Users\\Lucas Araujo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\obj\\",
+      "projectPath": "C:\\Users\\fic\\Desktop\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
+      "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fic\\Desktop\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lucas Araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
