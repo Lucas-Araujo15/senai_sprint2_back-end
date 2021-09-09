@@ -10,7 +10,7 @@ namespace senai_rental_webAPI.Repositories
 {
     public class VeiculoRepository : IVeiculoRepository
     {
-        private string stringConexao = @"Data source=DESKTOP-PJVB3DK\SQLEXPRESS; initial catalog=rental; integrated security=true";
+        private string stringConexao = @"Data source=DESKTOP-SV3M4A7\SQLEXPRESS; initial catalog=rental; user id = sa; pwd=Senai@132";
         public void Atualizar(VeiculoDomain novoVeiculo)
         {
             if (novoVeiculo.IdEmpresa != 0 || novoVeiculo.IdModelo != 0 || novoVeiculo.placaVeiculo != null)

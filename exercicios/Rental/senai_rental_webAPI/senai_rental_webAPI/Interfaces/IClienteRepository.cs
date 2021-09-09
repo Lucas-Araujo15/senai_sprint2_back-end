@@ -9,7 +9,7 @@ namespace senai_rental_webAPI.Interfaces
     interface IClienteRepository
     {
         /// <summary>
-        /// Lista todos os clintes cadastrados
+        /// Lista todos os clientes cadastrados
         /// </summary>
         /// <returns>Uma lista de clientes</returns>
         List<ClienteDomain> ListarTodos();

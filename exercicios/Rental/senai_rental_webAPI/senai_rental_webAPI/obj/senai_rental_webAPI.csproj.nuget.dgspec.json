@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj": {}
+    "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj": {
+    "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
         "projectName": "senai_rental_webAPI",
-        "projectPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
-        "packagesPath": "C:\\Users\\Luisa Oliveira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luisa Oliveira\\Documents\\LUCAS\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\obj\\",
+        "projectPath": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\senai_rental_webAPI.csproj",
+        "packagesPath": "C:\\Users\\Lucas Araujo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lucas Araujo\\Desktop\\SENAI\\senai_sprint2_back-end\\exercicios\\Rental\\senai_rental_webAPI\\senai_rental_webAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Luisa Oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas Araujo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

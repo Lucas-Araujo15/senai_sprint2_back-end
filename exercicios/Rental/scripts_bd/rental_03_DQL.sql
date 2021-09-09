@@ -19,6 +19,12 @@ GO
 SELECT * FROM aluguel;
 GO
 
+SELECT * FROM usuario;
+GO
+
+SELECT * FROM tipoUsuario;
+GO
+
 -- SELECT UTILIZANDO JOIN->
 
 -- Listar todos os alugueis mostrando as datas de início e fim, o nome do cliente que alugou e nome do modelo do carro:

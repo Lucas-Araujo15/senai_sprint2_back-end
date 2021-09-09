@@ -44,8 +44,23 @@ CREATE TABLE aluguel (
 	IdAluguel INT PRIMARY KEY IDENTITY (1,1),
 	IdCliente SMALLINT FOREIGN KEY REFERENCES cliente (IdCliente),
 	IdVeiculo TINYINT FOREIGN KEY REFERENCES veiculo (IdVeiculo),
-	dataAluguel DATETIME,
 	valorAluguel MONEY,
-	prazoLocacao TINYINT,
+	dataInicio DATETIME, 
+	dataFim DATETIME
+);
+GO
+
+CREATE TABLE tipoUsuario (
+	IdTipoUsuario INT PRIMARY KEY IDENTITY,
+	nomeTipoUsuario VARCHAR(70)
+);
+GO
+
+CREATE TABLE usuario (
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES tipoUsuario(IdTipoUsuario),
+	nomeUsuario VARCHAR(70) NOT NULL,
+	email VARCHAR(70) UNIQUE NOT NULL,
+	senha VARCHAR(20) NOT NULL
 );
 GO
