@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai_filmes_webAPI</name>
+    </assembly>
+    <members>
+        <member name="T:senai_filmes_webAPI.Interfaces.IFilmeRepository">
+            <summary>
+            Interface responsável pelo repositório FilmeDomain
+            </summary>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.ListarTodos">
+            <summary>
+            Retorna todos os filmes
+            </summary>
+            <returns>Retorna uma lista de filmes</returns>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um filme pelo ID
+            </summary>
+            <param name="idFilme">ID do filme que será buscado</param>
+            <returns>Objeto FilmeDomain que foi buscado</returns>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.Cadastrar(senai_filmes_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme
+            </summary>
+            <param name="novoFilme">Objeto FilmeDomain com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.AtualizarIdCorpo(senai_filmes_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme passando o ID pelo corpo da requisição
+            </summary>
+            <param name="filme">Objeto FilmeDomain com novas informações</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.AtualizarIdUrl(System.Int32,senai_filmes_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme passando o ID pela URL da requisição
+            </summary>
+            <param name="idFIlme">ID do filme a ser atualizado</param>
+            <param name="filme">Objeto FilmeDomain com as novas informações</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IFilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um filme específico
+            </summary>
+            <param name="idFilme">ID do filme que será deletado</param>
+        </member>
+        <member name="T:senai_filmes_webAPI.Interfaces.IGeneroRepository">
+            <summary>
+            Interface responsável pelo repositório GêneroRepository
+            </summary>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.ListarTodos">
+            <summary>
+            Retorna todos os gêneros
+            </summary>
+            <returns>Retorna uma lista de gêneros</returns>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um gênero pelo ID
+            </summary>
+            <param name="idGenero">ID do gênero que será buscado</param>
+            <returns>Um objeto do tipo GeneroDomain que foi buscado</returns>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.Cadastrar(senai_filmes_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Cadastra um novo gênero
+            </summary>
+            <param name="novoGenero">Objeto GeneroDomain com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.AtualizarIdCorpo(senai_filmes_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero passando o ID pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto GeneroDomain com novas informações</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.AtualizarIdUrl(System.Int32,senai_filmes_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero passando o ID pela URL da requisição
+            </summary>
+            <param name="idGenero">ID do gênero que será atualizado</param>
+            <param name="genero">Objeto GeneroDomain com as novas informações</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IGeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um gênero específico
+            </summary>
+            <param name="idGenero">ID do gênero que será deletado</param>
+        </member>
+        <member name="M:senai_filmes_webAPI.Interfaces.IUsuarioRepository.BuscarPorEmailSenha(System.String,System.String)">
+            <summary>
+            Valida o usuário
+            </summary>
+            <param name="email"></param>
+            <param name="senha"></param>
+            <returns>Um objeto do tipo UsuarioDomain que foi buscado</returns>
+        </member>
+        <member name="F:senai_filmes_webAPI.Repositories.GeneroRepository.stringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os parêmetros
+            Data source: Nome do servidor
+            Initial catalogo: Nome do banco de dados
+            user id, pwd,: Autenticação com login e senha
+            integrated securiry: Autenticação com o WIndows
+            </summary>
+        </member>
+    </members>
+</doc>

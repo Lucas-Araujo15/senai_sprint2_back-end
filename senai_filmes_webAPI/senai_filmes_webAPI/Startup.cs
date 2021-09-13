@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,18 @@ namespace senai_filmes_webAPI
         {
             services.AddControllers();
 
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(
+
+                c =>
+                {
+                    c.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Version = "v1",
+                        Title = "Filmes.webAPI",
+
+                    });
+                });
             //definiu a forma de autenticação
             services.AddAuthentication(options =>
             {
@@ -27,7 +40,8 @@ namespace senai_filmes_webAPI
             })
 
                 //define os parâmetros de validação do token
-                .AddJwtBearer("JwtBearer", option => {
+                .AddJwtBearer("JwtBearer", option =>
+                {
                     option.TokenValidationParameters = new TokenValidationParameters
                     {
                         //Será validado o emissor do token
@@ -58,10 +72,19 @@ namespace senai_filmes_webAPI
 
             app.UseRouting();
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Filmes.webAPI");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseAuthentication();
 
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
