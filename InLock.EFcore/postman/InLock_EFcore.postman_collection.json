@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "64c8f171-1607-499c-b875-2fc60edf538a",
+		"name": "InLock_EFcore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Estudios",
+			"item": [
+				{
+					"name": "EstudioListar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/estudios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstudioListarId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/estudios/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstudioListarJogos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/estudios/jogos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios",
+								"jogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstudioCadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NomeEstudio\": \"CD Projekt Red\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/estudios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstudioDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/estudios/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstudioAtualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"IdEstudio\": 3,\r\n    \"NomeEstudio\": \"Ubisoft\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/estudios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jogos",
+			"item": [
+				{
+					"name": "JogoListar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/jogos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"jogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JogoListarId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/jogos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"jogos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JogoCadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nomeJogo\": \"The Witcher\",\r\n        \"descricaoJogo\": \"É um jogo que contém bastante ação e fantasia\",\r\n        \"dataLancamento\": \"2015-05-15T00:00:00\",\r\n        \"valorJogo\": 80,\r\n        \"idEstudio\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/jogos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"jogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JogoDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/jogos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"jogos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JogoAtualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idJogo\": 6,\r\n    \"nomeJogo\": \"Cyberpunk\",\r\n    \"descricaoJogo\": \"É um jogo que contém bastante ação vilência, se passando em um futuro distópico\",\r\n    \"dataLancamento\": \"2020-05-15T00:00:00\",\r\n    \"valorJogo\": 200,\r\n    \"idEstudio\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/jogos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"jogos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
