@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace senai.inlock.webAPI.CF.Interfaces
 {
-    interface IJogosRepositorycs
+    interface IJogosRepository
     {
         /// <summary>
         /// Cadastra um novo jogo

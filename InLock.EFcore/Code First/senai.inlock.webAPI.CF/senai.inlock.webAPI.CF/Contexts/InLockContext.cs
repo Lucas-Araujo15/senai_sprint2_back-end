@@ -14,7 +14,7 @@ namespace senai.inlock.webAPI.CF.Contexts
         protected override void OnConfiguring
             (DbContextOptionsBuilder optionsBuilder) 
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-SV3M4A7\\SQLEXPRESS; Database=InLock_Games; user id=sa; pwd=Senai@132");
+            optionsBuilder.UseSqlServer("Server=NOTE0113B2\\SQLEXPRESS; Database=InLock_Games; user id=sa; pwd=Senai@132");
 
             base.OnConfiguring(optionsBuilder);
         }
